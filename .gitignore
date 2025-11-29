@@ -1,0 +1,9 @@
+# Python dependencies
+__pycache__/
+*.pyc
+
+# Environment variables (CRUCIAL for secrets)
+.env
+
+# Virtual environment
+venv/

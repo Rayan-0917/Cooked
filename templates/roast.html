@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Verdict</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body{background-color: #121212; color: white;}.glass-panel{
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1)
+        }
+        #roast-content strong {color: '#1DB954'; font-weight: 700;}
+        #roast-content p {margin-bottom: 1rem; line-height: 1.6;}
+    </style>
+</head>
+<body class="min-h-scren p-6 flex flex-col items-center justify-center bg-gradient-to-br from gray-900 to-black">
+    <div class="glass-panel w-full max-w-2xl rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+        <div class="absolute -top-20 -right-20 w-64 h-64 bg-green-600 rounded-full blur-[100px] opacity-20 "></div>
+            <div class="flex items-center gap-4 mb-8 relative z-10">
+                {% if image %}
+                <img src="{{image}}" class="w-16 h-16 rounded-full border-2 border-green-500 shadow-lg object-cover">
+                {% endif %}
+                <div>
+                    <h2 class="text-2xl font-bold">The Verdict is in.</h2>
+                </div>
+            </div>
+
+            <div class="prose prose-invert max-w-none mb-8 relative z-10">
+                <div id="roast-content" class="text-lg text-gray-200"></div>
+            </div>
+
+            <div class="flex gap-4 border-t border-gray-700 pt-6">
+                <a href="/logout" class="flex-1 text-center py-3 rounded-xl bg-white text-black font-bold hover:bg-gray-200 transition">I've had enough (logout)</a>
+                <button onclick="window.location.reload()" class="flex-1 text-center py-3 rounded-xl bg-gray-800 text-white font-bold hover:bg-gray-700 transition">Roast me again</button>
+            </div>
+    </div>
+    <div id="raw-text" style="display:none;">{{roast}}</div>
+
+    <script>
+        const rawText=document.getElementById('raw-text').textContent;
+        document.getElementById('roast-content').innerHTML=marked.parse(rawText);
+    </script>
+    
+</body>
+</html>

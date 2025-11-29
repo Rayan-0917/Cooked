@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Cooked</title>
+    <style>
+        body {background-color: #121212; color: white; font-family: 'Inter', sans-serif;}
+        .spotify-green{color: #1DB954}
+        .btn-spotify{background-color: #1DB954; color: black; transition: transform 0.2s;}
+        .btn-spotify:hover{background-color: #1ed760; transform: scale(1.05);}
+    </style>
+</head>
+<body class="flex items-center justify-center h-screen bg-black bg-opacity-95">
+    <div class="text-center max-w-lg p-8">
+        <h1 class="text-6xl font-bold mb-4 tracking-tighter">
+            Ready to get <br><span class="spotify-green">Roasted?</span> 
+        </h1>
+        <p class="text-gray-400 mb-8 text-lg">
+            We judge your music taste so you don't have to. It's not going to be pretty.
+        </p>
+        <a href="/login" class="btn-spotify px-8 py-4 rounded-full font-bold text-xl inline-flex items-center gap-2 shadow-lg shadow-green-900/50">
+            Login with spotify
+        </a>
+        <p class="mt-8 text-xs text-gray-600">
+            We do not store your data. We just send it to Gemini to make fun of you.
+        </p>
+    </div>
+</body>
+</html>
