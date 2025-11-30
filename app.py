@@ -3,6 +3,7 @@ import time
 from flask import Flask, redirect, request, session, render_template, url_for
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
+from spotipy.cache_handler import MemoryCacheHandler
 import google.generativeai as genai
 from dotenv import load_dotenv
 
@@ -15,12 +16,13 @@ genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
 model=genai.GenerativeModel('gemini-2.0-flash')
 
 def get_spotify_oauth():
+    
     return SpotifyOAuth(
         client_id=os.getenv('SPOTIFY_CLIENT_ID'),
         client_secret=os.getenv('SPOTIFY_CLIENT_SECRET'),
         redirect_uri=os.getenv('SPOTIFY_REDIRECT_URI'),
         scope='user-top-read',
-        cache_path=None
+        cache_handler=MemoryCacheHandler()
     )
 
 
